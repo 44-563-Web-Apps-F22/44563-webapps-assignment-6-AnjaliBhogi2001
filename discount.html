@@ -18,19 +18,38 @@
     <div class="container">
     <form>
        
-        <label for="basevalue">Enter base amount </label>
+        <label for="baseelement">Enter base amount </label>
         <input type ="number" id="baseelement" name="basevalue" value=20>
          <br>
         
        
-        <label for="discountvalue">Enter the discount percentage</label>
+        <label for="discountelement">Enter the discount percentage</label>
         <input type ="number" id="discountelement" name="discountvalue" value=10> 
         <br>
        
-        <input type="button" class="btn btn-success" onclick="discount()" value="Apply discount">
+        <input type="button" class="btn btn-danger" onclick="discount()" value="Apply discount">
     </form>
     <br>
     <div id="result">Base values will be displayed</div><br>
+</div>
+<br>
+<div class="container">
+    <form>
+        <div class="container">
+        <label for="multiply">*</label>
+        <input type="radio" id="mutiplication" name="multiply" value="times" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="divide">/</label>
+        <input type="radio" id="division" name="divide" value="divide" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="exponent">**</label>
+        <input type="radio" id="exponent" name="exponent" value="exponent" onclick="chooseOp()">
+        </div>
+        
+    </form>
+    <p id="Result">Operation results will be displayed </p><br>
 </div>
 <br>
     <script>
@@ -41,11 +60,11 @@
              result="";
             for(let i=1;i<=5;i++)
             {
-                result+=(baseelement*i)-((baseelement*i)*value/100)
+                result+=(basevalue*i)-((basevalue*i)*value/100)
                result+=" "
                
             }
-            document.getElementById("result").innerHTML="Discounted amounts for base "+baseelement+" are "+result
+            document.getElementById("result").innerHTML="Discounted amounts for base "+basevalue+" are "+result
         
         }
         function chooseOp()
@@ -56,14 +75,14 @@
             div=document.getElementById("division").checked
             exp=document.getElementById("exponent").checked
             if(mul){
-                  document.getElementById("result1").innerHTML="Amount*discount="+base*value1
+                  document.getElementById("Result").innerHTML="Amount*discount="+base*value1
             }
             else if(div){
                 
-                  document.getElementById("result1").innerHTML="Amount/discount"+base/value1
+                  document.getElementById("Result").innerHTML="Amount/discount"+base/value1
             }
             else if(exp){
-                  document.getElementById("result1").innerHTML="Amount**discount"+base**value1
+                  document.getElementById("Result").innerHTML="Amount**discount"+base**value1
             }
             
         }
