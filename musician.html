@@ -21,9 +21,14 @@
 
 <p id="result">This text will be replaced </p>
 
+<div class = "container">
+    <img src="Barklice.jpg" width="100px" height="100px" alt="Barklice" id="images"onclick="swapImage()">
+</div>
+
 <script> 
     correct =0
     wrong=0
+    useImage=1;
 function checkGuess(){
     console.log("Getting form values")
 
@@ -40,6 +45,26 @@ function checkGuess(){
         out.innerHTML = "correct - "+correct+" , "+"wrong - "+wrong
     }
 }
+
+    function swapImage(){
+    switch(useImage){
+        case 1:
+            document.getElementById("images").src="Barklice.jpg";
+            useImage+=1;
+            break;
+            case 2:
+            document.getElementById("images").src="Housefly.jpg";
+            useImage+=1;
+            break;
+            case 3:
+            document.getElementById("images").src="Odonata.jpg";
+            useImage=1;
+            break;
+
+    }
+}
+    
+
 </script>
 
 </body>
