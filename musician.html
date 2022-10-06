@@ -29,6 +29,7 @@
     correct =0
     wrong=0
     useImage=1;
+    count=0;
 function checkGuess(){
     console.log("Getting form values")
 
@@ -37,13 +38,23 @@ function checkGuess(){
     out = document.getElementById("result")
     if(age==nick){
         correct=correct+1
+        count = 0
         alert("You got it right")
         out.innerHTML = "correct - "+correct+" , "+"wrong - "+wrong
     } else {
         wrong=wrong+1
+        count++
         alert("Wrong musician")
+        if(count>=3){
+    if(wrong>=3){
+        gameover()
+    }
+    }
         out.innerHTML = "correct - "+correct+" , "+"wrong - "+wrong
     }
+}
+function gameover(){
+    alert("Sorry,gameover")
 }
 
     function swapImage(){
